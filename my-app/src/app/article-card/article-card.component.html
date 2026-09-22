@@ -1,0 +1,25 @@
+<article class="card">
+  <img class="card-cover" [src]="article.imageUrl" [alt]="article.title" />
+  <div class="card-body">
+    <h3 class="card-title">{{ article.title }}</h3>
+    <p class="card-excerpt">{{ article.previewText }}</p>
+    <div class="meta">
+      <img class="avatar" src="assets/svg/avatar-placeholder.svg" alt="" />
+      <div class="meta-name">{{ article.author }}</div>
+    </div>
+    <div class="actions">
+      <span class="icon-btn">
+        <img class="icon" src="assets/svg/icon-like.svg" alt="" />
+        Like
+      </span>
+      <span class="icon-btn">
+        <img class="icon" src="assets/svg/icon-comment.svg" alt="" />
+        Comment
+      </span>
+      <span class="icon-btn">
+        <img class="icon" src="assets/svg/icon-share.svg" alt="" />
+        Share
+      </span>
+    </div>
+  </div>
+</article>
