@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="Folio mark">
+  <!-- sRGB fills only, no strokes, no groups -->
+  <path fill="#0F3D3A" d="M4.2 5.4C4.2 4.1 5.3 3 6.6 3h8.2c1.3 0 2.4 1.1 2.4 2.4v19.2c0 1.1-.9 2-2 2H6.2c-1.1 0-2-.9-2-2V5.4Z"/>
+  <path fill="#1F5C57" d="M17.2 5.4C17.2 4.1 18.3 3 19.6 3h8.2c1.3 0 2.4 1.1 2.4 2.4v19.2c0 1.1-.9 2-2 2h-8.6c-1.1 0-2-.9-2-2V5.4Z"/>
+  <path fill="#FAF6F1" d="M7.2 6.6h7.2v16.6H7.2z"/>
+  <path fill="#FAF6F1" d="M20 6.6h7.2v16.6H20z"/>
+  <path fill="#C45C4A" d="M12.4 3h3.2v8.4L14 9.6l-1.6 1.8V3Z"/>
+</svg>
