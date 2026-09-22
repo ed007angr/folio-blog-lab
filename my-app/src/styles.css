@@ -1,0 +1,39 @@
+:root {
+  --brand-primary: #0f3d3a;
+  --brand-primary-hover: #0a2e2c;
+  --accent-like: #c45c4a;
+  --ink-primary: #1c1917;
+  --ink-secondary: #57534e;
+  --ink-muted: #a8a29e;
+  --paper: #faf6f1;
+  --paper-elevated: #ffffff;
+  --line: #e7e5e4;
+  --shadow-card: 0 8px 24px rgba(28, 25, 23, 0.08);
+  --shadow-hover: 0 12px 32px rgba(28, 25, 23, 0.12);
+  --radius-card: 16px;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: Inter, system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #ede8e1;
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

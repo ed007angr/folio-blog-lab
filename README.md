@@ -1,10 +1,38 @@
 # Folio
 
-Редакционный блог на **Vue 3**, **Vite** и **JSX**. Компоненты собраны по UI-киту Folio: карточка статьи, кнопка лайка, поле комментария и аватар.
+Редакционный блог. На ветке `angular` приложение собрано на **Angular** (каталог `my-app`). На ветке `main` лежит прототип на Vue 3.
 
-## Запуск
+## Angular
 
 Нужны Node.js 18+ и npm.
+
+```bash
+cd my-app
+npm install
+npm start
+```
+
+Приложение откроется по адресу http://localhost:4200/.
+
+Сборка production-версии: `npm run build` в каталоге `my-app`. Результат — `my-app/dist/my-app`.
+
+Состав:
+
+| Сущность | Назначение |
+| --- | --- |
+| `AppModule` | объявляет компоненты и запускает приложение |
+| `HeaderComponent` | шапка с логотипом Folio |
+| `ArticleListComponent` | получает статьи из сервиса и рисует ленту через `*ngFor` |
+| `ArticleCardComponent` | одна карточка, данные приходят через `@Input() article` |
+| `ArticlesService` | метод `getData()` возвращает mock-массив статей |
+
+## Vue
+
+Прототип на **Vue 3**, **Vite** и **JSX** остаётся в корне репозитория.
+
+## Запуск Vue
+
+Из корня репозитория:
 
 ```bash
 npm install
@@ -39,7 +67,9 @@ npm run preview
 
 ## Отчёт
 
-PDF-отчёт лабораторной: [`report-lab2/explanatory_note.pdf`](report-lab2/explanatory_note.pdf).
+PDF-отчёт лабораторной по Angular: [`report-lab20/explanatory_note.pdf`](report-lab20/explanatory_note.pdf).
+
+PDF-отчёт прототипа на Vue: [`report-lab2/explanatory_note.pdf`](report-lab2/explanatory_note.pdf).
 
 ## Репозиторий
 
