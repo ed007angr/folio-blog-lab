@@ -1,6 +1,3 @@
-import morning from "../assets/raster/article-morning.jpg";
-import writing from "../assets/raster/article-writing.jpg";
-
 export const articles = [
   {
     id: "morning-pages",
@@ -10,7 +7,7 @@ export const articles = [
     author: "Анна Волкова",
     date: "4 сентября",
     readTime: "8 мин",
-    image: morning,
+    cover: "morning",
     imageAlt: "Тетрадь и чашка кофе на письменном столе",
     likes: 128,
     comments: 24,
@@ -23,9 +20,22 @@ export const articles = [
     author: "Пётр Лебедев",
     date: "1 сентября",
     readTime: "6 мин",
-    image: writing,
+    cover: "writing",
     imageAlt: "Раскрытая тетрадь и перьевая ручка",
     likes: 86,
     comments: 11,
+  },
+  {
+    id: "editing-aloud",
+    title: "Редактура как чтение вслух",
+    excerpt:
+      "Один проход вслух снимает канцелярит лучше, чем три прохода глазами по экрану. Карточка держит только этот лид.",
+    author: "Мария Соколова",
+    date: "28 августа",
+    readTime: "5 мин",
+    cover: "editing",
+    imageAlt: "Раскрытая книга и чашка кофе на деревянном столе",
+    likes: 54,
+    comments: 7,
   },
 ];

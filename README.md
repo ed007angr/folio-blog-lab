@@ -1,34 +1,8 @@
 # Folio
 
-Редакционный блог. На ветке `angular` приложение собрано на **Angular** (каталог `my-app`). На ветке `main` лежит прототип на Vue 3.
+Редакционный блог на **Vue 3** и **Vite** (лабораторная №21). Корневое приложение собрано из однофайловых компонентов на Options API. Состояние живёт в `data()` каждого компонента. Vuex, Pinia и другие библиотеки состояния не используются.
 
-## Angular
-
-Нужны Node.js 18+ и npm.
-
-```bash
-cd my-app
-npm install
-npm start
-```
-
-Приложение откроется по адресу http://localhost:4200/.
-
-Сборка production-версии: `npm run build` в каталоге `my-app`. Результат — `my-app/dist/my-app`.
-
-Состав:
-
-| Сущность | Назначение |
-| --- | --- |
-| `AppModule` | объявляет компоненты и запускает приложение |
-| `HeaderComponent` | шапка с логотипом Folio |
-| `ArticleListComponent` | получает статьи из сервиса и рисует ленту через `*ngFor` |
-| `ArticleCardComponent` | одна карточка, данные приходят через `@Input() article` |
-| `ArticlesService` | метод `getData()` возвращает mock-массив статей |
-
-## Vue
-
-Прототип на **Vue 3**, **Vite** и **JSX** остаётся в корне репозитория.
+Приложение Angular той же темы лежит отдельно в каталоге `my-app`.
 
 ## Запуск Vue
 
@@ -39,37 +13,41 @@ npm install
 npm run dev
 ```
 
-Приложение откроется по адресу, который выведет Vite (обычно `http://localhost:5173`).
+Vite печатает локальный адрес в терминале. Обычно это http://localhost:5173.
 
-Сборка production-версии:
+Сборка без dev-сервера:
 
 ```bash
 npm run build
-npm run preview
 ```
 
-## Компоненты
+## Компоненты Vue
 
-Все компоненты — функциональные (`defineComponent` + `setup`, без классов). Состояние только через хук `useState` в `src/hooks/useState.js`.
+Родитель `App.vue` показывает шапку, ленту и обсуждение. Список комментариев хранится в `data()` корня и передаётся вниз через props. Новый текст приходит обратно через `$emit` и сразу появляется в списке.
 
-| Компонент | Назначение | Props | Локальное состояние |
-| --- | --- | --- | --- |
-| `LikeButton` | кнопка лайка со счётчиком | `initialCount` | `likes` — увеличивается по клику |
-| `CommentInput` | поле комментария и кнопка Post | `placeholder` | `text`, `focused`, список отправленных комментариев |
-| `ArticleCard` | карточка статьи | `title`, `excerpt`, `author`, `date`, `readTime`, `image`, `imageAlt`, `likes`, `comments` | нет: данные приходят через props |
-| `Avatar` | круглая заглушка аватара | `size` (32 / 48 / 64), `src`, `alt` | нет |
-| `PostButton` | кнопка отправки | `disabled`, `label` | нет |
+| Компонент | Назначение | Props | Событие наверх | Локальное состояние |
+| --- | --- | --- | --- | --- |
+| `ArticleCard.vue` | карточка статьи и кнопка Like со счётчиком | `article` — `Object`, `required` | `$emit('like', articleId)` по `@click` | `likes`, `liked` в `data()` |
+| `ArticleList.vue` | коллекция статей, `v-for` с `:key` | передаёт объект статьи в карточку | слушает `like` и показывает заголовок отмеченного материала | `articles`, `lastReaction` в `data()` |
+| `CommentSection.vue` | форма с `v-model` и список комментариев | `comments` — `Array`, `required` | `$emit('add-comment', text)` | `draft`, `focused` в `data()` |
 
-## Ограничения лабораторной
+Пустой текст комментария и пустой список разбираются через `v-if` / `v-else`.
 
-- классовые компоненты не используются;
-- Redux, MobX, Zustand и аналоги не подключены.
+## Angular
+
+Лабораторная на Angular остаётся в `my-app`:
+
+```bash
+cd my-app
+npm install
+npm start
+```
+
+Приложение откроется по адресу http://localhost:4200.
 
 ## Отчёт
 
-PDF-отчёт лабораторной по Angular: [`report-lab20/explanatory_note.pdf`](report-lab20/explanatory_note.pdf).
-
-PDF-отчёт прототипа на Vue: [`report-lab2/explanatory_note.pdf`](report-lab2/explanatory_note.pdf).
+PDF лабораторной №21: [`report-lab21/explanatory_note.pdf`](report-lab21/explanatory_note.pdf).
 
 ## Репозиторий
 
