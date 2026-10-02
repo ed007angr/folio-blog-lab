@@ -1,30 +1,35 @@
 <template>
   <div class="app">
-    <header class="header">
-      <div class="header-inner">
-        <img class="logo" :src="logoUrl" alt="Folio" />
-        <p class="kicker">Редакционный блог</p>
-      </div>
+    <header class="folio-nav">
+      <BContainer class="d-flex align-items-center justify-content-between py-3">
+        <img class="folio-logo" :src="logoUrl" alt="Folio" />
+        <p class="mb-0 text-uppercase small fw-semibold folio-kicker">Редакционный блог</p>
+      </BContainer>
     </header>
-    <main class="main">
-      <section class="hero">
-        <p class="kicker kicker-brand">Лента</p>
-        <h1>Folio</h1>
-        <p class="lead">
-          Длинные тексты, реакции и обсуждение. Карточки и комментарии собраны
-          как однофайловые компоненты Vue.
-        </p>
-      </section>
+    <main class="py-4 py-lg-5">
+      <BContainer>
+        <section class="mb-4 mb-lg-5">
+          <p class="mb-2 text-uppercase small fw-semibold folio-kicker-brand">Лента</p>
+          <h1 class="folio-serif display-5 mb-3">Folio</h1>
+          <p class="lead fs-6 text-secondary mb-0 col-lg-8">
+            Длинные тексты, реакции и обсуждение. Карточки и комментарии собраны
+            как однофайловые компоненты Vue и оформлены Bootstrap.
+          </p>
+        </section>
+      </BContainer>
       <ArticleList />
-      <CommentSection :comments="comments" @add-comment="addComment" />
+      <BContainer class="mt-4 mt-lg-5">
+        <CommentSection :comments="comments" @add-comment="addComment" />
+      </BContainer>
     </main>
-    <footer class="footer">
-      <div class="footer-inner">Folio · лабораторная работа по Vue</div>
+    <footer class="border-top">
+      <BContainer class="py-4 text-secondary small">Folio · лабораторная работа по Vue</BContainer>
     </footer>
   </div>
 </template>
 
 <script>
+import { BContainer } from "bootstrap-vue-next";
 import ArticleList from "./components/ArticleList.vue";
 import CommentSection from "./components/CommentSection.vue";
 import logoUrl from "./assets/svg/logo-light.svg";
@@ -32,6 +37,7 @@ import logoUrl from "./assets/svg/logo-light.svg";
 export default {
   name: "App",
   components: {
+    BContainer,
     ArticleList,
     CommentSection,
   },
@@ -67,76 +73,19 @@ export default {
 </script>
 
 <style scoped>
-.app {
-  min-height: 100vh;
-}
-
-.header {
-  background: var(--brand-primary);
-  color: var(--paper);
-}
-
-.header-inner,
-.main,
-.footer-inner {
-  width: min(1120px, calc(100% - 32px));
-  margin: 0 auto;
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 20px 0;
-}
-
-.logo {
+.folio-logo {
   display: block;
   height: 32px;
   width: auto;
 }
 
-.kicker {
-  margin: 0;
+.folio-kicker {
   letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 600;
   color: #d7e6e4;
 }
 
-.kicker-brand {
-  color: var(--brand-primary);
-}
-
-.main {
-  padding: 40px 0 72px;
-}
-
-.hero {
-  margin-bottom: 32px;
-}
-
-.hero h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(32px, 5vw, 48px);
-  line-height: 1.1;
-  margin: 8px 0 12px;
-}
-
-.lead {
-  margin: 0;
-  max-width: 640px;
-  color: var(--ink-secondary);
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.footer {
-  border-top: 1px solid var(--line);
-  padding: 24px 0 40px;
-  color: var(--ink-muted);
-  font-size: 13px;
+.folio-kicker-brand {
+  letter-spacing: 0.14em;
+  color: var(--folio-green);
 }
 </style>

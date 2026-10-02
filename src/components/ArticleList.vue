@@ -1,22 +1,31 @@
 <template>
   <section>
-    <h2 class="section-title">Свежие материалы</h2>
-    <p v-if="lastReaction" class="reaction">
-      Последняя реакция: «{{ lastReaction }}»
-    </p>
-    <p v-else class="reaction">Отметьте материал кнопкой Like</p>
-    <div class="feed">
-      <ArticleCard
-        v-for="article in articles"
-        :key="article.id"
-        :article="article"
-        @like="onLike"
-      />
-    </div>
+    <BContainer>
+      <h2 class="folio-serif h3 mb-2">Свежие материалы</h2>
+      <p v-if="lastReaction" class="text-secondary mb-3">
+        Последняя реакция: «{{ lastReaction }}»
+      </p>
+      <p v-else class="text-secondary mb-3">Отметьте материал кнопкой Like</p>
+    </BContainer>
+    <BContainer>
+      <BRow class="g-4">
+        <BCol
+          v-for="article in articles"
+          :key="article.id"
+          cols="12"
+          md="6"
+          lg="4"
+          class="d-flex"
+        >
+          <ArticleCard class="w-100" :article="article" @like="onLike" />
+        </BCol>
+      </BRow>
+    </BContainer>
   </section>
 </template>
 
 <script>
+import { BCol, BContainer, BRow } from "bootstrap-vue-next";
 import ArticleCard from "./ArticleCard.vue";
 import { articles as articleSeeds } from "../data/articles.js";
 import morning from "../assets/raster/article-morning.jpg";
@@ -33,6 +42,9 @@ export default {
   name: "ArticleList",
   components: {
     ArticleCard,
+    BContainer,
+    BRow,
+    BCol,
   },
   data() {
     return {
@@ -53,27 +65,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.section-title {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  line-height: 34px;
-  font-weight: 600;
-  margin: 0 0 12px;
-}
-
-.reaction {
-  margin: 0 0 20px;
-  color: var(--ink-secondary);
-  font-size: 14px;
-  line-height: 22px;
-}
-
-.feed {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
-  gap: 24px;
-  margin-bottom: 40px;
-}
-</style>
