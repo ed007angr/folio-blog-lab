@@ -45,9 +45,23 @@ npm start
 
 Приложение откроется по адресу http://localhost:4200.
 
+## React
+
+Лабораторная №22 лежит в каталоге `react-app`: тот же блог Folio, фильтр тегов на Redux Toolkit. Активный тег и список статей хранятся в `src/store`, компоненты читают их через `useSelector` и `useDispatch`.
+
+```bash
+cd react-app
+npm install
+npm run dev
+```
+
+Адрес обычно http://localhost:5173. Если порт занят, Vite выберет следующий свободный и напечатает его в терминале.
+
 ## Отчёт
 
 PDF лабораторной №21: [`report-lab21/explanatory_note.pdf`](report-lab21/explanatory_note.pdf).
+
+PDF лабораторной №22: [`report-lab22/explanatory_note.pdf`](report-lab22/explanatory_note.pdf).
 
 ## Репозиторий
 
