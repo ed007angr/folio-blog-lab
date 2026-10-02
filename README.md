@@ -49,6 +49,21 @@ npm start
 
 PDF лабораторной №21: [`report-lab21/explanatory_note.pdf`](report-lab21/explanatory_note.pdf).
 
+## Лабораторная №23 — Bootstrap
+
+Корневое Vue-приложение стилизовано одной библиотекой **bootstrap-vue-next** (Bootstrap 5). Vuetify и другие UI-наборы не подключены. Плагин регистрируется в `src/main.js` через `createBootstrap()`.
+
+Запуск из корня репозитория:
+
+```bash
+npm install
+npm run dev
+```
+
+Лента статей — сетка Bootstrap: `BContainer`, `BRow`, `BCol`. На широком экране (`lg`) карточки стоят в 3 колонки, на планшете (`md`) — в 2, на телефоне (`cols="12"`) — в 1. Кнопки, карточки статей и поле комментария заменены на `BButton`, `BCard` и `BFormTextarea`. Счётчик Like, `v-model` комментария, список через `v-for` и пустое состояние через `v-if` / `v-else` сохранены. Состояние по-прежнему в `data()`, без Pinia и Vuex.
+
+PDF: [`report-lab23/explanatory_note.pdf`](report-lab23/explanatory_note.pdf).
+
 ## Репозиторий
 
 https://github.com/ed007angr/folio-blog-lab

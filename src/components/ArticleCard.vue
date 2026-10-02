@@ -1,49 +1,66 @@
 <template>
-  <article class="card">
-    <img
-      class="card-cover"
+  <BCard no-body class="h-100 border-0 shadow-sm folio-card">
+    <BCardImg
       :src="article.image"
       :alt="article.imageAlt"
-      width="360"
-      height="200"
+      placement="top"
+      class="folio-cover"
     />
-    <div class="card-body">
-      <h3 class="card-title">{{ article.title }}</h3>
-      <p class="card-excerpt">{{ article.excerpt }}</p>
-      <div class="meta">
-        <img class="avatar" :src="avatar" alt="" width="32" height="32" />
+    <BCardBody class="d-flex flex-column">
+      <BCardTitle class="folio-serif h5 mb-2">{{ article.title }}</BCardTitle>
+      <BCardText class="text-secondary small mb-3">{{ article.excerpt }}</BCardText>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <img class="folio-avatar" :src="avatar" alt="" width="32" height="32" />
         <div>
-          <div class="meta-name">{{ article.author }}</div>
-          <div class="meta-date">{{ article.date }} · {{ article.readTime }}</div>
+          <div class="small fw-medium">{{ article.author }}</div>
+          <div class="small text-secondary">{{ article.date }} · {{ article.readTime }}</div>
         </div>
       </div>
-      <div class="actions">
-        <button
-          type="button"
-          class="icon-btn"
-          :class="{ 'is-liked': liked }"
+      <div class="d-flex flex-wrap gap-2 mt-auto">
+        <BButton
+          size="sm"
+          :variant="liked ? 'danger' : 'outline-secondary'"
           :aria-pressed="liked"
           aria-label="Like"
+          class="d-inline-flex align-items-center gap-1"
           @click="onLike"
         >
-          <img class="icon" :src="liked ? likeFilled : likeIcon" alt="" />
+          <img class="folio-icon" :src="liked ? likeFilled : likeIcon" alt="" />
           <span>Like</span>
           <span>{{ likes }}</span>
-        </button>
-        <button type="button" class="icon-btn" aria-label="Комментарии">
-          <img class="icon" :src="commentIcon" alt="" />
+        </BButton>
+        <BButton
+          size="sm"
+          variant="outline-secondary"
+          aria-label="Комментарии"
+          class="d-inline-flex align-items-center gap-1"
+        >
+          <img class="folio-icon" :src="commentIcon" alt="" />
           <span>{{ article.comments }}</span>
-        </button>
-        <button type="button" class="icon-btn" aria-label="Поделиться">
-          <img class="icon" :src="shareIcon" alt="" />
+        </BButton>
+        <BButton
+          size="sm"
+          variant="outline-secondary"
+          aria-label="Поделиться"
+          class="d-inline-flex align-items-center gap-1"
+        >
+          <img class="folio-icon" :src="shareIcon" alt="" />
           Share
-        </button>
+        </BButton>
       </div>
-    </div>
-  </article>
+    </BCardBody>
+  </BCard>
 </template>
 
 <script>
+import {
+  BButton,
+  BCard,
+  BCardBody,
+  BCardImg,
+  BCardText,
+  BCardTitle,
+} from "bootstrap-vue-next";
 import likeIcon from "../assets/svg/icon-like.svg";
 import likeFilled from "../assets/svg/icon-like-filled.svg";
 import commentIcon from "../assets/svg/icon-comment.svg";
@@ -52,6 +69,14 @@ import avatar from "../assets/svg/avatar-placeholder.svg";
 
 export default {
   name: "ArticleCard",
+  components: {
+    BButton,
+    BCard,
+    BCardBody,
+    BCardImg,
+    BCardText,
+    BCardTitle,
+  },
   props: {
     article: {
       type: Object,
@@ -81,57 +106,13 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  width: 100%;
-  background: var(--paper-elevated);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.16s ease, transform 0.16s ease;
-}
-
-.card:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
-}
-
-.card-cover {
-  width: 100%;
+.folio-cover {
   height: 200px;
   object-fit: cover;
+  width: 100%;
 }
 
-.card-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.card-title {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 20px;
-  line-height: 28px;
-  font-weight: 600;
-}
-
-.card-excerpt {
-  margin: 0;
-  color: var(--ink-secondary);
-  font-size: 14px;
-  line-height: 22px;
-}
-
-.meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.avatar {
+.folio-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -140,49 +121,8 @@ export default {
   flex: none;
 }
 
-.meta-name {
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 500;
-}
-
-.meta-date {
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 500;
-  color: var(--ink-secondary);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.icon {
-  width: 18px;
-  height: 18px;
-}
-
-.icon-btn {
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 0;
-  background: transparent;
-  color: var(--ink-secondary);
-  font: 600 12px/16px var(--font-sans);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-}
-
-.icon-btn:hover {
-  background: var(--paper);
-}
-
-.icon-btn.is-liked {
-  color: var(--accent-like);
-  background: #f8ebe8;
+.folio-icon {
+  width: 16px;
+  height: 16px;
 }
 </style>
