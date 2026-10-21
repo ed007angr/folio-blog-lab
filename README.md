@@ -57,9 +57,18 @@ npm run dev
 
 Адрес обычно http://localhost:5173. Если порт занят, Vite выберет следующий свободный и напечатает его в терминале.
 
-## Отчёт
+## Nuxt
 
-PDF лабораторной №21: [`report-lab21/explanatory_note.pdf`](report-lab21/explanatory_note.pdf).
+Лабораторная №25 лежит в каталоге `nuxt-app`. Главная страница рендерится на сервере, страницы статей собраны статически.
+
+```bash
+cd nuxt-app
+npm install --legacy-peer-deps
+npm run build
+npm run start
+```
+
+Приложение откроется по адресу http://localhost:3000. Подробности — в [`nuxt-app/README.md`](nuxt-app/README.md).
 
 ## Лабораторная №23 — Bootstrap
 
@@ -74,7 +83,15 @@ npm run dev
 
 Лента статей — сетка Bootstrap: `BContainer`, `BRow`, `BCol`. На широком экране (`lg`) карточки стоят в 3 колонки, на планшете (`md`) — в 2, на телефоне (`cols="12"`) — в 1. Кнопки, карточки статей и поле комментария заменены на `BButton`, `BCard` и `BFormTextarea`. Счётчик Like, `v-model` комментария, список через `v-for` и пустое состояние через `v-if` / `v-else` сохранены. Состояние по-прежнему в `data()`, без Pinia и Vuex.
 
-PDF: [`report-lab23/explanatory_note.pdf`](report-lab23/explanatory_note.pdf).
+## Отчёт
+
+PDF лабораторной №21: [`report-lab21/explanatory_note.pdf`](report-lab21/explanatory_note.pdf).
+
+PDF лабораторной №22: [`report-lab22/explanatory_note.pdf`](report-lab22/explanatory_note.pdf).
+
+PDF лабораторной №23: [`report-lab23/explanatory_note.pdf`](report-lab23/explanatory_note.pdf).
+
+PDF лабораторной №25: [`report-lab25/explanatory_note.pdf`](report-lab25/explanatory_note.pdf).
 
 ## Репозиторий
 
