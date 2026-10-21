@@ -1,0 +1,120 @@
+{
+  "info": {
+    "name": "Folio Articles",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "articleId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "POST /api/articles",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 201', function () { pm.response.to.have.status(201); });",
+              "const body = pm.response.json();",
+              "pm.collectionVariables.set('articleId', body._id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Утренние страницы\",\n  \"content\": \"Три страницы от руки до завтрака.\",\n  \"author\": \"Анна Волкова\"\n}"
+        },
+        "url": "http://127.0.0.1:4000/api/articles"
+      }
+    },
+    {
+      "name": "GET /api/articles",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:4000/api/articles"
+      }
+    },
+    {
+      "name": "GET /api/articles/:id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:4000/api/articles/{{articleId}}"
+      }
+    },
+    {
+      "name": "PUT /api/articles/:id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Утренние страницы\",\n  \"content\": \"Ритуал держится на повторении.\",\n  \"author\": \"Анна Волкова\"\n}"
+        },
+        "url": "http://127.0.0.1:4000/api/articles/{{articleId}}"
+      }
+    },
+    {
+      "name": "DELETE /api/articles/:id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "url": "http://127.0.0.1:4000/api/articles/{{articleId}}"
+      }
+    }
+  ]
+}

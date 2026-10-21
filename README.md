@@ -70,6 +70,19 @@ npm run start
 
 Приложение откроется по адресу http://localhost:3000. Подробности — в [`nuxt-app/README.md`](nuxt-app/README.md).
 
+## API
+
+Лабораторная №28 — REST API статей в каталоге `api` (Express, Mongoose, MongoDB). Нужна запущенная локальная MongoDB.
+
+```bash
+cd api
+npm install
+copy .env.example .env
+npm run dev
+```
+
+Сервер откроется по адресу http://localhost:4000. Эндпоинты: `/api/articles`. Подробности — в [`api/README.md`](api/README.md).
+
 ## Лабораторная №23 — Bootstrap
 
 Корневое Vue-приложение стилизовано одной библиотекой **bootstrap-vue-next** (Bootstrap 5). Vuetify и другие UI-наборы не подключены. Плагин регистрируется в `src/main.js` через `createBootstrap()`.
@@ -92,6 +105,8 @@ PDF лабораторной №22: [`report-lab22/explanatory_note.pdf`](report
 PDF лабораторной №23: [`report-lab23/explanatory_note.pdf`](report-lab23/explanatory_note.pdf).
 
 PDF лабораторной №25: [`report-lab25/explanatory_note.pdf`](report-lab25/explanatory_note.pdf).
+
+PDF лабораторной №28: [`report-lab28/explanatory_note.pdf`](report-lab28/explanatory_note.pdf).
 
 ## Репозиторий
 
